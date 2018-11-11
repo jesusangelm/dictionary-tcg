@@ -1,5 +1,13 @@
 defmodule Dictionary do
-  def hello do
-    IO.puts("Hello world from Elixir!")
+
+  def random_word do
+    word_list()
+    |> Enum.random()
+  end
+
+  def word_list do
+    "assets/words.txt"
+    |> File.read!()
+    |> String.split(~r/\n/)
   end
 end
